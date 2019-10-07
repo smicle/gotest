@@ -18,6 +18,7 @@ import (
 	"syscall"
 
 	"github.com/fatih/color"
+	"github.com/mattn/go-colorable"
 )
 
 var (
@@ -101,7 +102,7 @@ func parse(line string) {
 	}
 
 	if c == nil {
-		fmt.Printf("%s\n", line)
+		fmt.Fprintf(colorable.NewColorableStdout(), "%s\n", line)
 		return
 	}
 	c.Printf("%s\n", line)
