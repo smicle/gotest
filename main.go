@@ -24,6 +24,7 @@ import (
 var (
 	success = color.New(color.FgGreen)
 	fail    = color.New(color.FgHiRed)
+	run     = color.New(color.FgYellow)
 )
 
 const paletteEnv = "GOTEST_PALETTE"
@@ -84,7 +85,7 @@ func parse(line string) {
 	case strings.HasPrefix(trimmed, "=== RUN"):
 		fallthrough
 	case strings.HasPrefix(trimmed, "?"):
-		c = nil
+		c = run
 
 	// success
 	case strings.HasPrefix(trimmed, "--- PASS"):
